@@ -36,6 +36,7 @@ namespace SimpleException
         }
 
         // See if Car has overheated
+        // this time we will throw an exception if the user speeds up beond max.
         public void Accelerate(int delta)
         {
             if (carIsDead)
@@ -48,6 +49,8 @@ namespace SimpleException
                     Console.WriteLine("{0} has overheated", PetName);
                     CurrentSpeed = 0;
                     carIsDead = true;
+                    // Use the "thorw keyword to raise an exception
+                    throw new Exception(string.Format("{0} has overheated!", PetName));
                 }
                 else
                     Console.WriteLine("=> CurrentSpped = {0}", CurrentSpeed);
